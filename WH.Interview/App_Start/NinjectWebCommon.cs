@@ -1,5 +1,5 @@
-using WH.Business.Services;
 using WH.Data;
+using WH.Data.Utilities;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WH.Interview.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WH.Interview.App_Start.NinjectWebCommon), "Stop")]
@@ -67,10 +67,10 @@ namespace WH.Interview.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             
-            kernel.Bind<BetImporter>().ToMethod(x =>
+            kernel.Bind<BetData>().ToMethod(x =>
             {
                 var appDataPath = HttpContext.Current.Server.MapPath("~/App_Data/");
-                return new BetImporter(kernel.Get<CsvImporter>(), appDataPath);
+                return new BetData(kernel.Get<CsvImporter>(), appDataPath);
             });
         }        
     }

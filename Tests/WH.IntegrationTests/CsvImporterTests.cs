@@ -2,22 +2,22 @@
 using System.Linq;
 using NUnit.Framework;
 using WH.Data;
+using WH.Data.Utilities;
 using WH.Domain;
 
 namespace WH.IntegrationTests
 {
     [TestFixture]
     public class CsvImporterTests
-    {
-        private CsvImporter _csvImporter;
+    {        
         private List<CustomerBet> _customerBets;
 
         [SetUp]
         public void Setup()
         {
-            _csvImporter = new CsvImporter();
+            var csvImporter = new CsvImporter();
 
-            _customerBets = _csvImporter.ReadFile("../../../../WH.Interview/App_Data/Settled.csv").ToList();
+            _customerBets = csvImporter.ReadFile("../../../../WH.Interview/App_Data/Settled.csv").ToList();
         }
 
         [Test]

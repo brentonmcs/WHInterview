@@ -1,23 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WH.Data;
+using WH.Data.Utilities;
 using WH.Domain;
 
-namespace WH.Business.Services
+namespace WH.Data
 {
-    public class BetImporter
+    public class BetData
     {
         private readonly CsvImporter _csvImporter;
         private readonly string _appDataPath;
 
-        public BetImporter(CsvImporter csvImporter, string appDataPath)
+        public BetData(CsvImporter csvImporter, string appDataPath)
         {
             _csvImporter = csvImporter;
             _appDataPath = appDataPath;
         }
 
         private List<CustomerBet> _resultedBets;
-        public List<CustomerBet> ResultedBets
+        public virtual List<CustomerBet> ResultedBets
         {
             get { return _resultedBets ?? (_resultedBets = ReadResultedBets()); }
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using WH.Domain;
 
-namespace WH.Data
+namespace WH.Data.Utilities
 {
     public class CsvImporter
     {

@@ -1,15 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using WH.Business.Services;
+using WH.Domain;
 
 namespace WH.Interview.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly BetImporter _betImporter;
+
+        public HomeController(BetImporter betImporter)
+        {
+            _betImporter = betImporter;
+        }
+
         public ActionResult Index()
         {
+            
+            ViewBag.ResultedBetCount = _betImporter.ResultedBets.Count;
             return View();
         }
 

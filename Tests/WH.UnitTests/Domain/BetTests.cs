@@ -67,7 +67,7 @@ namespace WH.UnitTests.Domain
         {
             _bet.Customer = GetCustomerWithAverage(100);
             _bet.Stake = 100 * 10;
-            _bet.WinAmount = 1001;
+            _bet.WinAmount = 1000;
             Assert.AreEqual(RiskLevel.High, _bet.RiskLevel);
         }
 

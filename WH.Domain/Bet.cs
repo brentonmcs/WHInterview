@@ -17,12 +17,13 @@
                 var level = RiskLevel.Normal;
                 if (Customer == null)
                     return level;
-
+                if (Customer.IsHighRisk)
+                    level = RiskLevel.Risky;
                 if (StakeOverAverage(10))
                     level = RiskLevel.Unusual;
                 if (StakeOverAverage(30))
                     level = RiskLevel.High;
-                if (WinAmount > 1000)
+                if (WinAmount >= 1000)
                     level = RiskLevel.High;
 
                 return level;

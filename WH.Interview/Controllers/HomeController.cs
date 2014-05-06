@@ -22,7 +22,9 @@ namespace WH.Interview.Controllers
             var model =new RiskViewModel
             {
                 HighRiskCustomers = _riskService.HighRiskCustomers.ToList(),
-                HighRiskUpCommingBets = _riskService.HighRiskBets.ToList()
+                HighRiskUpCommingBets = _riskService.HighRiskBets.ToList(),
+                AllCustomers = _riskService.Customers.ToList(),
+                AllBets = _riskService.Bets.ToList()
             };
         
             return View(model);

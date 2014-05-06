@@ -1,0 +1,131 @@
+﻿@model WH.Interview.Models.RiskViewModel
+@{
+    ViewBag.Title = "Home Page";
+
+}
+
+<div class="jumbotron">
+    <h1>WH Interview Test</h1>
+    <p>By Brenton McSweyn</p>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <h3>High Risk Customers</h3>
+
+
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th>Customer Id</th>
+                    <th>Win Rate</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var customerRow in Model.HighRiskCustomers)
+                {
+                    <tr>
+                        <td>@customerRow.CustomerId</td>
+                        <td>@customerRow.WinPercentage</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-6">
+        <h3>All Customers</h3>
+
+        <table class="table table-bordered col-lg-6">
+            <thead>
+                <tr>
+                    <th>Customer Id</th>
+                    <th>Win Rate</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var customerRow in Model.AllCustomers)
+                {
+                    <tr>
+                        <td>@customerRow.CustomerId</td>
+                        <td>@customerRow.WinPercentage.ToString("#.##")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-lg-6">
+        <h3>High Risk Customers</h3>
+
+        <h3>High Risk Upcomming Bets</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Event Id</th>
+                    <th>Participant Id</th>
+                    <th>Stake</th>
+                    <th>Win Amount</th>
+                    <th>Customer Id</th>
+                    <th>Customer Average Stake</th>
+                    <th>Risk Level</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var betRow in Model.HighRiskUpCommingBets)
+                {
+                    <tr>
+                        <td>@betRow.EventId</td>
+                        <td>@betRow.ParticipantId</td>
+                        <td>@betRow.Stake</td>
+                        <td>@betRow.WinAmount</td>
+                        <td>@betRow.Customer.CustomerId</td>
+
+                        <td>@betRow.Customer.AvgSake.ToString("#.##")</td>
+
+                        <td>@betRow.RiskLevel</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-lg-6">
+
+        <h3>All Upcomming Bets</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Event Id</th>
+                    <th>Participant Id</th>
+                    <th>Stake</th>
+                    <th>Win Amount</th>
+                    <th>Customer Id</th>
+                    <th>Customer Average Stake</th>
+                    <th>Risk Level</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var betRow in Model.AllBets)
+                {
+                    <tr>
+                        <td>@betRow.EventId</td>
+                        <td>@betRow.ParticipantId</td>
+                        <td>@betRow.Stake</td>
+                        <td>@betRow.WinAmount</td>
+                        <td>@betRow.Customer.CustomerId</td>
+
+                        <td>@betRow.Customer.AvgSake.ToString("#.##")</td>
+
+                        <td>@betRow.RiskLevel</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

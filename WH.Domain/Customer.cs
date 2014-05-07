@@ -11,7 +11,7 @@ namespace WH.Domain
 
         public int CustomerId { get; set; }
 
-        public bool IsHighRisk
+        public virtual bool IsHighRisk
         {
             get
             {
@@ -33,7 +33,7 @@ namespace WH.Domain
             }
         }
 
-        public double AvgSake
+        public double AverageStake
         {
             get
             {

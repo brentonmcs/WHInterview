@@ -37,9 +37,8 @@ namespace WH.UnitTests.Service
             A.CallTo(() => betData.ResultedBets).Returns(null);
 
             var customers = customerService.Customers;
-            Assert.AreEqual(0, customers.Count);            
-
-            
+            Assert.AreEqual(0, customers.Count);                        
+            A.CallTo(() => betData.ResultedBets).MustHaveHappened(Repeated.Exactly.Once);
         }
         
     }

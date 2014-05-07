@@ -32,7 +32,7 @@
 
         private bool StakeOverAverage(int timesOverAverage)
         {
-            return Stake >(Customer.AvgSake * timesOverAverage);
+            return Stake >(Customer.AverageStake * timesOverAverage);
         }
     }
 }

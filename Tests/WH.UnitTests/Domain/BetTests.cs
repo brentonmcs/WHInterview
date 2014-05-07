@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FakeItEasy;
 using NUnit.Framework;
 using WH.Domain;
 
@@ -71,6 +72,16 @@ namespace WH.UnitTests.Domain
             Assert.AreEqual(RiskLevel.High, _bet.RiskLevel);
         }
 
+        [Test]
+        public void RiskLevelWhenCustomerIsHighRiskIsRisky()
+        {
+            var customer = A.Fake<Customer>();
+            _bet.Customer = customer;
+            A.CallTo(() => customer.IsHighRisk).Returns(true);
+            
+            Assert.AreEqual(RiskLevel.Risky, _bet.RiskLevel);
+        }
+        
         private static Customer GetCustomerWithAverage(int averageBetSize)
         {
             return new Customer

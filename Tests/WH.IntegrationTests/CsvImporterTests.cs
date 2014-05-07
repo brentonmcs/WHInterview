@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using WH.Data;
 using WH.Data.Utilities;
 using WH.Domain;
 
 namespace WH.IntegrationTests
 {
+    
     [TestFixture]
     public class CsvImporterTests
     {        

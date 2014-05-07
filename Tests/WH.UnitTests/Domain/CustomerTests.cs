@@ -72,9 +72,9 @@ namespace WH.UnitTests.Domain
                     new CustomerBet { Win = 1 }, 
                     new CustomerBet { Win = 1 },                     
                     new CustomerBet { Win = 1 }, 
-                    new CustomerBet { Win = 1 }, 
-                    
+                    new CustomerBet { Win = 1 },                     
                     new CustomerBet { Win = 1 },
+
                     new CustomerBet { Win = 0 },
                     new CustomerBet { Win = 0 },
                     new CustomerBet { Win = 0 }
@@ -82,6 +82,21 @@ namespace WH.UnitTests.Domain
                 }
             };
             Assert.IsTrue(customer.IsHighRisk);
+        }
+
+        [Test]
+        public void AverageStakeReturnsValidAmount()
+        {
+            var customer = new Customer
+            {
+                Bets = new List<CustomerBet>
+                {
+                    new CustomerBet {Stake = 10},
+                    new CustomerBet {Stake = 10},
+                }
+            };
+
+            Assert.AreEqual(10,customer.AverageStake);
         }
     }
 }
